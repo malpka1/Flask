@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create user</title>
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Create a new user</h1>
+        <form action="/create_user", method="POST">
+            <div class="form_user">
+                <label for="name">Username</label>
+                <input type="text" class="form-control" id='name' name ='name' required>
+            </div>
+            <div class="form_user">
+                <label for="nickname">Nickname</label>
+                <textarea type="text" class="form-control" id='nickname' name ='nickname'></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Create</button>
+        </form>
+    </div>
+
+</body>
+</html>

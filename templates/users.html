@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>List of users</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>name</th>
+                    <th>nickname</th>
+                    <th>action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                <tr>
+                    <td> {{user.name}}</td>
+                    <td> {{user.nickname}}</td>
+                    <td>
+                        <form action="{{ url_for('create_idea') }}" method="POST">
+                            <input type="hidden" name="user_id" value="{{ user.id }}">
+                            <button type="submit">Create Idea</button>
+                        </form>
+                    </td>
+                    <td>
+                         <form action="{{ url_for('get_idea', user_id=user.id) }}" method="GET">
+                             <button type="submit">Get Ideas</button>
+                         </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
