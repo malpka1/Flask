@@ -2,7 +2,8 @@ from models import User, Idea
 
 
 def count_ideas_of_user():
-    return db.session.query((User, db.func.count(Idea.id))).outerjoin(Idea).group_by(User.id).all()
+    return db.session.query(User, db.func.count(Idea.id)).outerjoin(Idea).group_by(User.id).all()
+
 
 
 def user_with_max_number_of_idea():
